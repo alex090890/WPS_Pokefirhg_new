@@ -17,7 +17,6 @@ export default function PokemonList() {
         {pokemons.map((pokemon) => (
           <li key={pokemon.id}>
             <h2>{pokemon.name.english}</h2>
-            <p>Type: {pokemon.type.join(', ')}</p>
           </li>
         ))}
       </ol>
