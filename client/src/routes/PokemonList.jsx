@@ -16,7 +16,7 @@ export default function PokemonList() {
       <ol>
         {pokemons.map((pokemon) => (
           <li key={pokemon.id}>
-            <h2>{pokemon.name.english}</h2>
+            <a href={`/pokemon/${pokemon.id}`}><p>{pokemon.name.english}</p></a>
           </li>
         ))}
       </ol>

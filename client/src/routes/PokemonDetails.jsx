@@ -42,6 +42,7 @@ if (!pokemon) {
                 <p>Special Defense: {pokemon.base['Sp. Defense']}</p>
                 <p>Speed: {pokemon.base.Speed}</p>
             </div>}
+            <a href={ '/'}><p>Home</p></a>
     </div>
     );
 }
