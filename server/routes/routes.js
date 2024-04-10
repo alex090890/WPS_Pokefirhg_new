@@ -4,6 +4,8 @@ const pokemon = require('../pokedex.json');
 
 const router = express.Router();
 
+
+
 router.get('/pokemon', (req, res) => {
     const pokemonList = pokemon.map(p => {
         return {

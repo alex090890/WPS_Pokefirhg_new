@@ -16,3 +16,4 @@ npm-debug.log
 # Ignore any OS or editor-generated files
 .DS_Store
 Thumbs.db
+.vercel
