@@ -59,7 +59,21 @@ const PokemonFight = () => {
     } else {
         winner = 'It is a draw! Click on "Restart" to try your luck one more time!'
     };
-    console.log(winner);
+  console.log(winner);
+  
+  const saveDataToMongoDB = async () => {
+    const data = {
+      winner
+    };
+
+    const response = await fetch('/saveData', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+  };
 
   return (
     <div>
@@ -114,7 +128,7 @@ const PokemonFight = () => {
               <div>
               <h2>Who is the winner?</h2>
               <p>{winner}</p>
-              <button onClick={handleReload}>Restart</button>
+              <button onClick={() => { handleReload(); saveDataToMongoDB(); }}>Restart</button>
               <a href={ '/'}><p>Home</p></a>
           </div>
           ) : (
