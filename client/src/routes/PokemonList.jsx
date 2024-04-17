@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Dance from '../../public/dab-dance.gif'
+import Footer from './Footer';
 
 export default function PokemonList() {
   const [pokemons, setPokemons] = useState([]);
@@ -22,6 +23,7 @@ export default function PokemonList() {
           </li>
         ))}
       </ol>
+      <Footer />
     </div>
   )
 }

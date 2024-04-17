@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Footer from './Footer';
 
 export default function PokemonDetails() {
     const { id } = useParams();
@@ -44,6 +45,7 @@ if (!pokemon) {
             </div>}
             <a href={'/pokemon'}><p>Return to the list of pokemons</p></a>
             <a href={'/'}>Return to the homepage</a>
+            <Footer />
     </div>
     );
 }

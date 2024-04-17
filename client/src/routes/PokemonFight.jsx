@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import Footer from './Footer';
 
 const PokemonFight = () => {
   let [pokemonList, setPokemonList] = useState([]);
@@ -118,7 +119,8 @@ const PokemonFight = () => {
           </div>
           ) : (
             <div>Please select a pokemon to play</div>
-          )}
+      )}
+      <Footer />
     </div>
   );
 };
