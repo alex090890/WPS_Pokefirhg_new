@@ -29,6 +29,7 @@ const PokemonSearch = () => {
 
   return (
     <div>
+      <h2>Choose your hero:</h2>
       <select value={selectedPokemonId || ''} onChange={handleSelectChange}>
         {pokemonList && pokemonList.map && pokemonList.map(pokemon => (
           <option key={pokemon.id} value={pokemon.id}>

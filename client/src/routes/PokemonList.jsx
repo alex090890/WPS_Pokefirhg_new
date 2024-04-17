@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import PokemonSearch from './PokemonSearch';
+import Dance from '../../public/dab-dance.gif'
 
 export default function PokemonList() {
   const [pokemons, setPokemons] = useState([]);
@@ -14,7 +14,7 @@ export default function PokemonList() {
   return (
     <div>
       <h1>Here are our Pokemon champions</h1>
-      <PokemonSearch />
+      <img src={Dance} alt="Dab Dance" className="dab-dance" /> 
       <ol>
         {pokemons.map((pokemon) => (
           <li key={pokemon.id}>

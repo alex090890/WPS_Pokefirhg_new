@@ -1,0 +1,19 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(240, 225, 12, 1), rgba(131, 34, 4, 1), rgba(240, 225, 12, 1), rgba(131, 34, 4, 1), rgba(240, 225, 12, 1), rgba(131, 34, 4, 1), rgba(240, 225, 12, 1), rgba(131, 34, 4, 1), rgba(240, 225, 12, 1), rgba(131, 34, 4, 1));
+  background-size: 100% 100%;
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+
+#root {
+  max-width: 1280px;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

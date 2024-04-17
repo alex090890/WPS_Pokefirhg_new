@@ -1,10 +1,10 @@
 const express = require('express');
 const { validationResult } = require('express-validator');
 const pokemon = require('../pokedex.json');
-
+const MongoClient = require('mongodb').MongoClient;
 const router = express.Router();
 
-
+const url=
 
 router.get('/pokemon', (req, res) => {
     const pokemonList = pokemon.map(p => {
