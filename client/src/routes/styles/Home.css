@@ -1,5 +1,3 @@
-.home-container
-
 .nobla-mainbutton {
     display: inline-block;
     vertical-align: top;
@@ -35,3 +33,22 @@
 .dab-dance {
   width: 15vw;
 }
+
+@media screen and (max-width: 600px) {
+    .home-container {
+        display: inline-block;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        grid-template-rows: repeat(auto-fill, minmax(100px, 1fr));
+    }
+
+
+    .nobla-mainbutton, .nobla-mainbutton:hover {
+        width: 50vw;
+        height: 20vw;
+      }
+      
+      .dab-dance {
+        width: 50vw;
+        height: 50vw;
+      }
+    }

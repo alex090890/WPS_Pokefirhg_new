@@ -1,0 +1,30 @@
+.list-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    font-size: 40px!important;
+}
+
+.list-item {
+    margin: 10px;
+    font-size: 2vw!important;
+}
+
+.bungee-spice-regular {
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 600px) {
+    .list-container {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+
+
+    .list-item {
+        margin: 5px;
+        font-size: 3vw!important;
+    }
+
+    .bungee-spice-regular {
+        margin-top: 5px;
+    }
+}

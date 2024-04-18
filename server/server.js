@@ -61,6 +61,8 @@ app.post('/saveData', async (req, res) => {
   }
 });
 
+module.exports = app;
+
 app.listen(PORT, () => {
   console.log(`✅ Server is running :database: on port ${PORT}`);
 });

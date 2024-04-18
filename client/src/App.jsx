@@ -4,6 +4,7 @@ import PokemonDetails from "./routes/PokemonDetails";
 import PokemonFight from "./routes/PokemonFight";
 import Home from "./routes/Home";
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (

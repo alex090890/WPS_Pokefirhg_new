@@ -1,13 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import Footer from './Footer';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import { useNavigate } from 'react-router-dom';
+import './styles/PokemonFight.css';
+
 
 const PokemonFight = () => {
   let [pokemonList, setPokemonList] = useState([]);
   let [selectedPokemonId, setSelectedPokemonId] = useState(null);
     let [randomPokemon, setRandomPokemon] = useState(null);
     let handleReload = () => {window.location.reload()};
-
+ const navigate = useNavigate();
   const handleSelectChange = (event) => {
     setSelectedPokemonId(parseInt(event.target.value, 10));
   };
@@ -79,10 +84,10 @@ const PokemonFight = () => {
     <div>
       <div>
         <h2>Choose your hero:</h2>
-      <select value={selectedPokemonId || ''} onChange={handleSelectChange}>
-        <option value="">Select a Pokemon</option>
+      <select value={selectedPokemonId || ''} onChange={handleSelectChange} className='selectmenu'>
+        <option value="" className='option'>Select a Pokemon</option>
         {pokemonList && pokemonList.map && pokemonList.map(pokemon => (
-          <option key={pokemon.id} value={pokemon.id}>
+          <option key={pokemon.id} value={pokemon.id} className='option'>
             {pokemon.name.english}
           </option>
         ))}
@@ -90,18 +95,22 @@ const PokemonFight = () => {
 
         {selectedPokemonId && (
                   <div>
-                      <ul>
-                            <li>HP: {selectedPokemonHp}</li>
-                            <li>Attack: {selectedPokemonAttack}</li>
-                            <li>Defense: {selectedPokemonDefense}</li>
-                            <li>Special Attack: {selectedPokemonSpAt}</li>
-                            <li>Special Defense: {selectedPokemonSpDef}</li>
-                            <li>Speed: {selectedPokemonSpeed}</li>
-                      </ul>
-                      <p>
-            The total Power your Pokemon of {pokemonList.find(pokemon => pokemon.id === selectedPokemonId).name.english} is{' '}
-            {selectedPokemonPower}
-          </p>
+            <Card className='details-card'>
+              <Card.Header>
+                <h3>{pokemonList.find(pokemon => pokemon.id === selectedPokemonId).name.english}</h3>
+            <p>Type: {pokemonList.find(pokemon => pokemon.id === selectedPokemonId).type.join(', ')}</p>
+                </Card.Header>
+              <Card.Body>
+                            <p>HP: {selectedPokemonHp}</p>
+                            <p>Attack: {selectedPokemonAttack}</p>
+                            <p>Defense: {selectedPokemonDefense}</p>
+                            <p>Special Attack: {selectedPokemonSpAt}</p>
+                            <p>Special Defense: {selectedPokemonSpDef}</p>
+              <p>Speed: {selectedPokemonSpeed}</p>
+              </Card.Body>
+              <Card.Footer>The total Power your Pokemon of {pokemonList.find(pokemon => pokemon.id === selectedPokemonId).name.english} is{' '}
+            {selectedPokemonPower}</Card.Footer>
+            </Card>
           </div>
         )}
       </div>
@@ -109,16 +118,21 @@ const PokemonFight = () => {
         {randomPokemon && (
           <div>
             <h2>Meet your opponent:</h2>
-            <h3>{randomPokemon.name.english}</h3>
+            <Card className='details-card'>
+              <Card.Header>
+                <h3>{randomPokemon.name.english}</h3>
             <p>Type: {randomPokemon.type.join(', ')}</p>
-            <p>Base Stats:</p>
-            <ul>
+            </Card.Header>
+            <Card.Body>
               {Object.entries(randomPokemon.base).map(([key, value]) => (
-                <li key={key}>
+                <p key={key}>
                   {key}: {value}
-                </li>
+                </p>
               ))}
-            </ul>
+              </Card.Body>
+              <Card.Footer>The total Power of the random Pokemon is{' '}
+            {randomPokemonPower}</Card.Footer>
+              </Card>
           </div>
         )}
         
@@ -127,13 +141,16 @@ const PokemonFight = () => {
           {selectedPokemonId ? (
               <div>
               <h2>Who is the winner?</h2>
-              <p>{winner}</p>
-              <button onClick={() => { handleReload(); saveDataToMongoDB(); }}>Restart</button>
-              <a href={ '/'}><p>Home</p></a>
+              <p className='winnertext'>{winner}</p>
+              <Button variant='danger' onClick={() => { handleReload(); saveDataToMongoDB(); }}>Restart</Button>
+              
           </div>
           ) : (
-            <div>Please select a pokemon to play</div>
+            <div className='winnertext'>Please select a pokemon to play</div>
       )}
+      <p>* In case the list of pokemons and the information about them is not loaded, please restart the page.</p>
+      <Button variant='info' onClick={() => navigate(`/pokemon`)} className='navbutton'>Return to the list of pokemons</Button>
+                        <Button variant='info' onClick={() => navigate(`/`)} className='navbutton'>Return to Homepage</Button>
       <Footer />
     </div>
   );

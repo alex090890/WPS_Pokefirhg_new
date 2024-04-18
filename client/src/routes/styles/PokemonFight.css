@@ -1,0 +1,27 @@
+.winnertext {
+    font-family: "Nabla", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+        "EDPT" 100,
+        "EHLT" 12;
+    font-size: 4vw;
+}
+
+.selectmenu {
+    font-size: 3vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    background-color: transparent;
+    border: none;
+    color: rgb(9, 37, 22);
+}
+
+.details-card {
+    background-color: transparent!important;
+    margin: 10px auto;
+    text-align: left;
+    font-size: 2vw;
+     width: 40vw!important;
+}
